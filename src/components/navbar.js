@@ -2,6 +2,7 @@ import React from "react";
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
+import harpoonPic from './harpoon.valentines.webinar2.png'
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
@@ -11,7 +12,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-        <img style={{"width" : 25 + '%'}} source={require('./images/harpoon.valentines.webinar1.png')} alt="Harpoon"></img>
+        <img style={{"width" : 25 + '%'}} source={harpoonPic} alt="Harpoon"></img>
         </NavLink>
         <button
           className="navbar-toggler"
