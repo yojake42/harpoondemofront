@@ -15,6 +15,5 @@ RUN npm install react-router-dom
 # Copy the current directory contents into the container at /app
 COPY . .
 
-RUN npm start
-
 EXPOSE 80
+CMD [ "npm", "start" ]
