@@ -26,7 +26,11 @@ export default function RecordList() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/record/`);
+      let backEndConnection = 'http://localhost:5000/record/';
+      if (process.env.BACK_END_CONNECTION) {
+        backEndConnection = process.env.BACK_END_CONNECTION + '/record/';
+      }
+      const response = await fetch(backEndConnection);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -45,7 +49,11 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
+    let backEndConnection = `http://localhost:5000/${id}`;
+    if (process.env.BACK_END_CONNECTION) {
+      backEndConnection = process.env.BACK_END_CONNECTION + `/${id}`;
+    }
+    await fetch(backEndConnection, {
       method: "DELETE"
     });
 
