@@ -29,7 +29,7 @@ export default function RecordList() {
     async function getRecords() {
       let backEndConnection = 'http://localhost:5000/record/';
       if (env.BACK_END_URL) {
-        backEndConnection = env.BACK_END_URL + '/record/';
+        backEndConnection = 'http://' + env.BACK_END_URL + ':5000/record/';
       }
       console.log('backEndConnection is:', backEndConnection);
       const response = await fetch(backEndConnection);
@@ -53,7 +53,7 @@ export default function RecordList() {
   async function deleteRecord(id) {
     let backEndConnection = `http://localhost:5000/${id}`;
     if (env.BACK_END_URL) {
-      backEndConnection = env.BACK_END_URL + `/${id}`;
+      backEndConnection = 'http://' + env.BACK_END_URL + `:5000/${id}`;
     }
     await fetch(backEndConnection, {
       method: "DELETE"
