@@ -2,7 +2,10 @@ import React from "react";
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
-import harpoonPic from './harpoon.valentines.webinar2.png'
+import harpoonPic1 from '../images/harpoon.valentines.webinar1.png';
+import harpoonPic2 from '../images/harpoon.valentines.webinar2.png';
+import harpoonPic3 from '../images/harpoon.valentines.webinar3.png';
+
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
@@ -12,7 +15,9 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-        <img style={{"width" : 25 + '%'}} source={harpoonPic} alt="Harpoon"></img>
+          <img style={{"width" : 25 + '%'}}  src={harpoonPic1} alt="Harpoon"></img>
+          <img style={{"width" : 25 + '%'}}  src={harpoonPic2} alt="Harpoon"></img>
+          <img style={{"width" : 25 + '%'}}  src={harpoonPic3} alt="Harpoon"></img>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -25,16 +30,6 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/create">
-                Create Record
-              </NavLink>
-            </li>
-          </ul>
-        </div>
       </nav>
     </div>
   );
