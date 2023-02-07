@@ -30,6 +30,7 @@ export default function RecordList() {
       if (process.env.BACK_END_CONNECTION) {
         backEndConnection = process.env.BACK_END_CONNECTION + '/record/';
       }
+      console.log('backEndConnection is:', backEndConnection);
       const response = await fetch(backEndConnection);
 
       if (!response.ok) {
