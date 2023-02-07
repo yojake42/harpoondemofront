@@ -25,7 +25,7 @@ export default function Create() {
     const newPerson = { ...form };
     let backEndConnection = 'http://localhost:5000/record/add';
     if (env.BACK_END_URL) {
-      backEndConnection = 'http://' + env.BACK_END_URL + '/record/add';
+      backEndConnection = env.BACK_END_URL + '/record/add';
     }
     await fetch(backEndConnection, {
       method: "POST",
