@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import env from "react-dotenv";
 
 export default function Create() {
   const [form, setForm] = useState({
@@ -23,8 +24,8 @@ export default function Create() {
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
     let backEndConnection = 'http://localhost:5000/record/add';
-    if (process.env.REACT_APP_BACK_END_CONNECTION) {
-      backEndConnection = process.env.REACT_APP_BACK_END_CONNECTION + '/record/add';
+    if (env.BACK_END_URL) {
+      backEndConnection = env.BACK_END_URL + '/record/add';
     }
     await fetch(backEndConnection, {
       method: "POST",
