@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "10.43.71.32",
+  "proxy": "http://localhost:5000",
   "homepage": ".",
   "private": true,
   "dependencies": {
