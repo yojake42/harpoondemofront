@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "proxy": "10.43.71.32",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
