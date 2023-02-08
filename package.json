@@ -2,6 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "proxy": "http://a689021a22d3d45f6b768bacba6592d3-1890970295.us-west-2.elb.amazonaws.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
