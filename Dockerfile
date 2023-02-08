@@ -15,5 +15,9 @@ RUN npm install react-router-dom
 # Copy the current directory contents into the container at /app
 COPY . .
 
-EXPOSE 3000
-CMD [ "npm", "start" ]
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=compiler /app/build/ /usr/share/nginx/html
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
