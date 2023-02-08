@@ -33,7 +33,7 @@ export default function RecordList() {
       }
       console.log('backEndConnection is:', backEndConnection);
       const response = await fetch(backEndConnection);
-
+      console.log('response from get records is', response);
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         window.alert(message);

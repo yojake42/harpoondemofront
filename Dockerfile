@@ -9,8 +9,6 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm install 
-RUN npm install bootstrap
-RUN npm install react-router-dom
 
 # Copy the current directory contents into the container at /app
 COPY . .
