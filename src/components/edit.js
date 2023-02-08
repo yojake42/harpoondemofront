@@ -16,8 +16,8 @@ export default function Edit() {
     async function fetchData() {
       const id = params.id.toString();
       let backEndConnection = `http://localhost:5000/record/${params.id.toString()}`;
-      if (env.BACK_END_URL) {
-        backEndConnection = env.BACK_END_URL + `/record/${params.id.toString()}`;
+      if (process.env.BACK_END_URL) {
+        backEndConnection = process.env.BACK_END_URL + `/record/${params.id.toString()}`;
       }
       const response = await fetch(backEndConnection);
 
@@ -59,8 +59,8 @@ export default function Edit() {
 
     // This will send a post request to update the data in the database.
     let backEndConnection = `http://localhost:5000/update/${params.id}`;
-    if (env.BACK_END_URL) {
-      backEndConnection = env.BACK_END_URL + `/update/${params.id}`;
+    if (process.env.BACK_END_URL) {
+      backEndConnection = process.env.BACK_END_URL + `/update/${params.id}`;
     }
     await fetch(backEndConnection, {
       method: "POST",
