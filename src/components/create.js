@@ -27,6 +27,7 @@ export default function Create() {
     if (env.BACK_END_URL) {
       backEndConnection = env.BACK_END_URL + '/record/add';
     }
+    console.log('backEndConnection create', backEndConnection);
     await fetch(backEndConnection, {
       method: "POST",
       headers: {
