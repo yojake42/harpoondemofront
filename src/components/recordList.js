@@ -51,7 +51,7 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    let backEndConnection = `http://localhost:5000/${id}`;
+    let backEndConnection = `http://10.43.244.103:5000/${id}`;
     if (process.env.REACT_APP_BACK_END_URL) {
       backEndConnection = process.env.REACT_APP_BACK_END_URL + `/${id}`;
     }
