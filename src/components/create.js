@@ -24,8 +24,8 @@ export default function Create() {
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
     let backEndConnection = 'http://localhost:5000/record/add';
-    if (env.BACK_END_URL) {
-      backEndConnection = env.BACK_END_URL + '/record/add';
+    if (process.env.REACT_APP_BACK_END_URL) {
+      backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/add';
     }
     console.log('backEndConnection create', backEndConnection);
     await fetch(backEndConnection, {

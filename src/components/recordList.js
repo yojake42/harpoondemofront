@@ -28,8 +28,8 @@ export default function RecordList() {
   useEffect(() => {
     async function getRecords() {
       let backEndConnection = 'http://localhost:5000/record/';
-      if (env.BACK_END_URL) {
-        backEndConnection = env.BACK_END_URL + '/record/';
+      if (process.env.REACT_APP_BACK_END_URL) {
+        backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/';
       }
       console.log('backEndConnection is:', backEndConnection);
       const response = await fetch(backEndConnection);
@@ -52,8 +52,8 @@ export default function RecordList() {
   // This method will delete a record
   async function deleteRecord(id) {
     let backEndConnection = `http://localhost:5000/${id}`;
-    if (env.BACK_END_URL) {
-      backEndConnection = env.BACK_END_URL + `/${id}`;
+    if (process.env.REACT_APP_BACK_END_URL) {
+      backEndConnection = process.env.REACT_APP_BACK_END_URL + `/${id}`;
     }
     await fetch(backEndConnection, {
       method: "DELETE"
