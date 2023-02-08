@@ -27,7 +27,7 @@ export default function RecordList() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      let backEndConnection = 'http://localhost:5000/record/';
+      let backEndConnection = '10.43.244.103/record/';
       if (process.env.REACT_APP_BACK_END_URL) {
         backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/';
       }
