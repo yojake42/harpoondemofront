@@ -51,7 +51,7 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    let backEndConnection = `http://10.43.244.103:5000/${id}`;
+    let backEndConnection = `10.43.244.103/${id}`;
     if (process.env.REACT_APP_BACK_END_URL) {
       backEndConnection = process.env.REACT_APP_BACK_END_URL + `/${id}`;
     }
@@ -80,11 +80,6 @@ export default function RecordList() {
   return (
     <div>
       <h3>harpoon Valentines day invite list</h3>
-      <div>
-          <NavLink className="nav-link" to="/create" style={{ padding: 0 }}>
-            Create Record
-          </NavLink>
-      </div>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
           <tr>
