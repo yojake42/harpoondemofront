@@ -23,7 +23,7 @@ export default function Create() {
 
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
-    let backEndConnection = `10.43.241.197/record/add`;
+    let backEndConnection = `/record/add`;
     if (process.env.REACT_APP_BACK_END_URL) {
       backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/add';
     }
