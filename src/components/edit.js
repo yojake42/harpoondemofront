@@ -15,7 +15,7 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      let backEndConnection = `10.43.222.83/record/${params.id.toString()}`;
+      let backEndConnection = `10.43.241.197/record/${params.id.toString()}`;
       if (process.env.REACT_APP_BACK_END_URL) {
         backEndConnection = process.env.REACT_APP_BACK_END_URL + `/record/${params.id.toString()}`;
       }
@@ -58,7 +58,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    let backEndConnection = `10.43.222.83/update/${params.id}`;
+    let backEndConnection = `10.43.241.197/update/${params.id}`;
     if (process.env.REACT_APP_BACK_END_URL) {
       backEndConnection = process.env.REACT_APP_BACK_END_URL + `/update/${params.id}`;
     }
