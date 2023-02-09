@@ -27,9 +27,9 @@ export default function RecordList() {
   useEffect(() => {
     async function getRecords() {
       let backEndConnection = `/mybackendserver/record/`;
-      if (process.env.REACT_APP_BACK_END_URL) {
-        backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/';
-      }
+      // if (process.env.REACT_APP_BACK_END_URL) {
+      //   backEndConnection = process.env.REACT_APP_BACK_END_URL + '/record/';
+      // }
       console.log('backEndConnection is:', backEndConnection);
       const response = await fetch(backEndConnection);
       console.log('response from get records is', response);
