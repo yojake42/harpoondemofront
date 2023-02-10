@@ -15,11 +15,7 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      let backEndConnection = `10.43.241.197/record/${params.id.toString()}`;
-      if (process.env.REACT_APP_BACK_END_URL) {
-        backEndConnection = process.env.REACT_APP_BACK_END_URL + `/record/${params.id.toString()}`;
-      }
-      const response = await fetch(backEndConnection);
+      const response = await fetch( `/mybackendserver/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
@@ -58,11 +54,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    let backEndConnection = `10.43.241.197/update/${params.id}`;
-    if (process.env.REACT_APP_BACK_END_URL) {
-      backEndConnection = process.env.REACT_APP_BACK_END_URL + `/update/${params.id}`;
-    }
-    await fetch(backEndConnection, {
+    await fetch(`/mybackendserver/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPerson),
       headers: {
