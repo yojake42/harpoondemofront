@@ -45,7 +45,7 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`/mybackendserver/${id}`, {
+    await fetch(`http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/${id}`, {
       method: "DELETE"
     });
 
