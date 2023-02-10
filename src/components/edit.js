@@ -15,7 +15,8 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch( `/mybackendserver/record/${params.id.toString()}`);
+      console.log('param id is', params.id.toString());
+      const response = await fetch(`/mybackendserver/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
