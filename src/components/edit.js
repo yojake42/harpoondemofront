@@ -16,7 +16,7 @@ export default function Edit() {
     async function fetchData() {
       const id = params.id.toString();
       console.log('param id is', params.id.toString());
-      const response = await fetch(`http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/record/${params.id.toString()}`);
+      const response = await fetch(`/mybackendserver/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
@@ -55,7 +55,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(`http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/update/${params.id}`, {
+    await fetch(`/mybackendserver/record/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPerson),
       headers: {
