@@ -26,7 +26,7 @@ export default function RecordList() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/record/`);
+      const response = await fetch(`/mybackendserver/record/`);
       console.log('response from get records is', response);
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -45,7 +45,7 @@ export default function RecordList() {
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/record/${id}`, {
+    await fetch(`/mybackendserver/record/${id}`, {
       method: "DELETE"
     });
 
