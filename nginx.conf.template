@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    location / {
+        try_files $uri $uri/ /index.html;
+        # This will allow you to refresh page in your angular app. Which will not give error 404.
+    }
+
+    location /mybackendserver/ {
+        proxy_pass ${BACK_END_URL};
+    }
+}

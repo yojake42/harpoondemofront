@@ -19,5 +19,6 @@ RUN npm run build
 
 FROM nginx:alpine
 COPY --from=compiler /app/build/ /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf.template /nginx.conf.template
+CMD ["/bin/sh" , "-c" , "envsubst < /nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
 EXPOSE 80
