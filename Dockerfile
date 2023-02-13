@@ -20,6 +20,7 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=compiler /app/build/ /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+ENV back_end_url http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/
 # COPY ./nginx.conf.template /etc/nginx/
 EXPOSE 80
 
