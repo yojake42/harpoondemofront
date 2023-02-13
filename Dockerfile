@@ -24,10 +24,7 @@ RUN npm run build
 # EXPOSE 80
 # CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
 
-FROM nginx:1.15-alpine
-
-RUN  mkdir -p /run/nginx && \
-     apk add nginx-mod-http-lua
+FROM openresty/openresty
 
 COPY --from=compiler /app/build/ /usr/share/nginx/html
 
