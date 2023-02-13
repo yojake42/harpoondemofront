@@ -17,9 +17,22 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+# FROM nginx:alpine
+# COPY --from=compiler /app/build/ /usr/share/nginx/html
+# # COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# COPY ./nginx.conf.template /etc/nginx/
+# EXPOSE 80
+# CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
+
+FROM nginx:1.15-alpine
+
+RUN  mkdir -p /run/nginx && \
+     apk add nginx-mod-http-lua
+
 COPY --from=compiler /app/build/ /usr/share/nginx/html
-# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf.template /etc/nginx/
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
-CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
+
+CMD [ "nginx", "-c", "/etc/nginx/conf.d/default.conf", "-g", "daemon off;" ]
