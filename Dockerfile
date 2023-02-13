@@ -23,7 +23,7 @@ COPY --from=compiler /app/build/ /usr/share/nginx/html
 COPY ./nginx.conf.template /etc/nginx/conf.d/default.conf.template
 
 # COPY ./nginx.conf.template /etc/nginx/conf.d/default.conf
-COPY docker-entrypoint.sh /
+COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
