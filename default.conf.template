@@ -8,6 +8,6 @@ server {
     }
     
     location /mybackendserver/ {
-        proxy_pass http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/;
+        proxy_pass ${back_end_url};
     }
 }
