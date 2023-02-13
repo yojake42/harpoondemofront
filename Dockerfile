@@ -17,21 +17,8 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx
 COPY --from=compiler /app/build/ /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-ENV back_end_url http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/
-# COPY ./nginx.conf.template /etc/nginx/
+ENV back_end_url=http://srv-63e57896d6634700175dd5cb-internal.harpoon-78739-26567.svc.cluster.local:5000/
+COPY ./default.conf.template /etc/nginx/templates
 EXPOSE 80
-
-# CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
-
-# FROM openresty/openresty
-
-# COPY --from=compiler /app/build/ /usr/share/nginx/html
-
-# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
-# EXPOSE 80
-
-# CMD [ "nginx", "-c", "/etc/nginx/conf.d/default.conf", "-g", "daemon off;" ]
