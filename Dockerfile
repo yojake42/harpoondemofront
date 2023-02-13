@@ -17,7 +17,9 @@ COPY . .
 
 RUN npm run build
 
-FROM openresty/openresty:1.21.4.1-bionic
+FROM nginx:alpine
 COPY --from=compiler /app/build/ /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/templates/nginx.conf.template
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
