@@ -16,8 +16,8 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v1
         with:
-          username: atest
-          password: bh48yjzbsUtGS0ll1vdIgRn3TiYAtst60Ijb2GY4212
+          username: "atest"
+          password: "fKMQ83vLZ7sllW9GFwaqzlH8jpzD3nNfPhrZLeOFCaP"
           registry: registry.harpooncorp.com
 
       - name: Build and Push Docker Image
