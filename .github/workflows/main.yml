@@ -21,15 +21,8 @@ jobs:
         with:
           node-version: 16.14
 
-      - name: Docker Login
-        uses: docker/login-action@v1
-        with:
-          username: "atest"
-          password: ${{ secrets.HARPOON_TOKEN }}
-          registry: registry.harpooncorp.com
-
       - name: Build and Push Docker Image
         run: |
-          docker build --platform linux/amd64 -t harpoondemofront .
-          docker tag harpoondemofront:latest registry.harpooncorp.com/atest/harpoondemofront:latest
+          docker login -u atest -p ${{ secrets.HARPOON_TOKEN }} registry.harpooncorp.com
+          docker build --platform linux/amd64 -t registry.harpooncorp.com/atest/harpoondemofront:latest .
           docker push registry.harpooncorp.com/atest/harpoondemofront:latest
