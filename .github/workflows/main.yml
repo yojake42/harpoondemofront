@@ -23,7 +23,6 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          echo "docker login -u atest -p ${HARPOON_TOKEN} registry.harpooncorp.com"
           docker login -u atest -p ${{ secrets.HARPOON_TOKEN }} registry.harpooncorp.com
           docker build --platform linux/amd64 -t registry.harpooncorp.com/atest/harpoondemofront:latest .
           docker push registry.harpooncorp.com/atest/harpoondemofront:latest
