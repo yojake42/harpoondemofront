@@ -17,7 +17,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: "atest"
-          password: "fKMQ83vLZ7sllW9GFwaqzlH8jpzD3nNfPhrZLeOFCaP"
+          password: ${{ secrets.HARPOON_TOKEN }}
           registry: registry.harpooncorp.com
 
       - name: Build and Push Docker Image
