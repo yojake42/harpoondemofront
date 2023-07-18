@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_and_push:
-    runs-on: ubuntu-latest
+    runs-on: node:16.13
 
     steps:
       - name: Checkout code
