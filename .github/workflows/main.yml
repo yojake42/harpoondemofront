@@ -16,20 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js 16.14
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.14
-
-      - name: Set Up Docker Environment
-        uses: docker/setup-docker@v1
-        with:
-          docker-version: 24.0.2
-      
       - name: Docker Login
         uses: docker/login-action@v1
         with:
-          username: "atest"
+          username: atest
           password: ${{ secrets.HARPOON_TOKEN }}
           registry: https://registry.harpooncorp.com
 
