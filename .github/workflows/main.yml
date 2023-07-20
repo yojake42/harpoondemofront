@@ -25,5 +25,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build --platform linux/amd64 -t registry.harpooncorp.com/atest/harpoondemofront:latest .
+          docker build -t registry.harpooncorp.com/atest/harpoondemofront:latest .
           docker push registry.harpooncorp.com/atest/harpoondemofront:latest
