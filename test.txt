@@ -1,1 +1,1 @@
-trigger push psuh push
+trigger push psuh push push
