@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Log in to Docker Hub
-        run: docker login -u atest -p ${{ secrets.HARPOON_TOKEN }}
+        run: docker login registry.harpooncorp.com -u atest -p ${{ secrets.HARPOON_TOKEN }}
 
       - name: Build Docker image
         run: docker build -t registry.harpooncorp.com/atest/harpoondemo:latest .
