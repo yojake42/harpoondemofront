@@ -16,7 +16,10 @@ jobs:
         run: docker login https://registry.harpooncorp.com -u atest -p ${{ secrets.HARPOON_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t registry.harpooncorp.com/atest/harpoondemofront:latest .
+        run: docker build -t harpoondemofront .
+
+      - name: Tag Docker image
+        run: docker tag harpoondemofront:latest registry.harpooncorp.com/atest/harpoondemofront:latest
 
       - name: Push Docker image to Docker Hub
         run: docker push registry.harpooncorp.com/atest/harpoondemofront:latest
