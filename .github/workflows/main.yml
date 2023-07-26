@@ -21,9 +21,9 @@ jobs:
         with:
           username: atest
           password: ${{ secrets.HARPOON_TOKEN }}
-          registry: host.docker.internal:5050
+          registry: registry.harpooncorp.com
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t host.docker.internal:5050/atest/harpoondemofront:latest .
-          docker push host.docker.internal:5050/atest/harpoondemofront:latest
+          docker build -t registry.harpooncorp.com/atest/harpoondemofront:latest .
+          docker push registry.harpooncorp.com/atest/harpoondemofront:latest
